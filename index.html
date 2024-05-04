@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cards Interativos Futuristas</title>
+<title>Cards Interativos Modernos</title>
 <style>
     body {
         display: flex;
@@ -11,52 +11,101 @@
         align-items: center;
         height: 100vh;
         margin: 0;
-        background: #0f0c29; /* Dark background for a futuristic theme */
-        background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29); /* Background gradient */
-        background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* Background gradient */
+        background: #f0f0f0; /* Light grey background for a minimalistic theme */
         font-family: 'Arial', sans-serif; /* Modern typography */
     }
     .card-container {
-        display: flex;
-        gap: 30px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        width: 660px; /* Adjusted width to fit 3 cards */
+        padding: 20px;
     }
     .card {
-        width: 220px;
+        width: 200px; /* Adjusted width to fit within container */
         height: 300px;
-        background: #1f1c2c; /* Card background */
-        border: 1px solid #2e2759;
+        background: #ffffff; /* White background for the card */
+        border: 1px solid #d0d0d0; /* Soft border color */
         border-radius: 15px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         padding: 20px;
-        box-shadow: 0 10px 20px -10px rgba(0,0,0,0.75); /* Soft shadow */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
         cursor: pointer;
         text-decoration: none;
-        color: #ffffff; /* Text color */
+        color: #333; /* Dark grey text for readability */
         transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
     }
     .card svg {
-        fill: url(#gradient); /* Applying gradient to SVG */
-        width: 100px;
-        height: 100px;
+        width: 100px; /* Adjusted SVG size */
+        height: 100px; /* Adjusted SVG size */
         margin-bottom: 20px;
     }
     .card:hover {
-        transform: translateY(-10px); /* Levitation effect on hover */
-        box-shadow: 0 15px 25px -5px rgba(0,0,0,0.5); /* Increased shadow on hover */
+        transform: translateY(-5px); /* Subtle levitation effect on hover */
+        box-shadow: 0 12px 24px rgba(0,0,0,0.2); /* Increased shadow on hover */
     }
     .card-title {
-        font-size: 20px;
-        font-weight: bold; /* More prominent titles */
+        font-size: 18px; /* Appropriately sized font for readability */
+        font-weight: bold;
+        color: #555; /* Slightly darker text color for contrast */
     }
 </style>
 </head>
 <body>
 <div class="card-container">
+    <!-- Dados de Acesso -->
+    <a href="https://ravellsl.github.io/Ferramentas-Dados-de-Acesso/" target="_blank" class="card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100">
+            <path fill="#7F00FF" d="M19 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h13c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h13v16z"/>
+            <path fill="#E100FF" d="M8 6h8v2H8zM8 10h8v2H8z"/>
+        </svg>
+        <div class="card-title">Dados de Acesso</div>
+    </a>
+
+    <!-- Imagem -->
+    <a href="https://ravellsl.github.io/Ferramentas-Imagem/" target="_blank" class="card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100">
+            <defs>
+                <linearGradient id="gradientPhoto" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#ff9a9e;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#fad0c4;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <path fill="url(#gradientPhoto)" d="M4 16V8a2 2 0 012-2h2.586a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H18a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2z"/>
+            <path fill="url(#gradientPhoto)" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <div class="card-title">Imagem</div>
+    </a>
+
+    <!-- Player de Áudio -->
+    <a href="https://ravellsl.github.io/Ferramentas-Player-Audio/" target="_blank" class="card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100">
+            <defs>
+                <linearGradient id="gradientAudio" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#89f7fe;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#66a6ff;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <path fill="url(#gradientAudio)" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13H9v6h2v-6zm4 0h-2v6h2v-6z"/>
+        </svg>
+        <div class="card-title">Player de Áudio</div>
+    </a>
+
+    <!-- Registro de Atividades -->
+    <a href="https://ravellsl.github.io/Ferramentas-Registro-de-Atividades/" target="_blank" class="card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100">
+            <path fill="#feb47b" d="M12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+            <path fill="#ff7e5f" d="M10 16.5l4-4-1.5-1.5-4 4V16.5h1.5z"/>
+            <path fill="#ff7e5f" d="M13.5 8H12v1.5l4 4L17.5 10l-4-4z"/>
+        </svg>
+        <div class="card-title">Registro de Atividades</div>
+    </a>
+
+    <!-- Site -->
     <a href="https://ravellsl.github.io/Ferramentas-Site/" target="_blank" class="card">
-        <!-- SVG de Tela de Monitor -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100">
             <defs>
                 <linearGradient id="gradientMonitor" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -68,36 +117,20 @@
         </svg>
         <div class="card-title">Site</div>
     </a>
-    
 
+    <!-- Vídeo -->
     <a href="https://ravellsl.github.io/Ferramentas-Videos/" target="_blank" class="card">
-        <!-- Improved SVG for Video Symbol -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100">
             <defs>
-                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="gradientVideo" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" style="stop-color:#ff4e50;stop-opacity:1" />
                     <stop offset="100%" style="stop-color:#f9d423;stop-opacity:1" />
                 </linearGradient>
             </defs>
-            <path fill="url(#gradient2)" d="M14.752 11.168l-4.579-2.651A1 1 0 009 9.003v5.994a1 1 0 001.173.835l4.579-2.651a1 1 0 000-1.671v-.342z"/>
-            <path fill="url(#gradient2)" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            <path fill="url(#gradientVideo)" d="M14.752 11.168l-4.579-2.651A1 1 0 009 9.003v5.994a1 1 0 001.173.835l4.579-2.651a1 1 0 000-1.671v-.342z"/>
+            <path fill="url(#gradientVideo)" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
         </svg>
         <div class="card-title">Vídeo</div>
-    </a>
-
-    <a href="https://ravellsl.github.io/Ferramentas-Imagem/" target="_blank" class="card">
-        <!-- Improved SVG for Photo Logo -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100">
-            <defs>
-                <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#ff9a9e;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#fad0c4;stop-opacity:1" />
-                </linearGradient>
-            </defs>
-            <path fill="url(#gradient3)" d="M4 16V8a2 2 0 012-2h2.586a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H18a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2z"/>
-            <path fill="url(#gradient3)" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-        </svg>
-        <div class="card-title">Imagem</div>
     </a>
 </div>
 </body>
