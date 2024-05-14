@@ -11,48 +11,64 @@
         align-items: center;
         height: 100vh;
         margin: 0;
-        background: #f0f0f0; /* Light grey background for a minimalistic theme */
-        font-family: 'Arial', sans-serif; /* Modern typography */
+        background: #f0f0f0;
+        font-family: 'Arial', sans-serif;
     }
+
     .card-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsivo */
-        gap: 20px;
-        width: 100%;
-        max-width: 800px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
         padding: 20px;
     }
+
     .card {
-        width: 100%;
-        height: 300px;
-        background: #ffffff; /* White background for the card */
-        border: 1px solid #d0d0d0; /* Soft border color */
+        width: calc(33.33% - 40px); /* 33.33% para mostrar 3 cartões por linha */
+        max-width: 300px; /* Tamanho máximo para evitar que fique muito grande */
+        background: #ffffff;
+        border: 1px solid #d0d0d0;
         border-radius: 15px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         padding: 20px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         cursor: pointer;
         text-decoration: none;
-        color: #333; /* Dark grey text for readability */
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
+        color: #333;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin: 20px; /* Espaço entre os cartões */
     }
+
     .card svg {
-        width: 100px; /* Adjusted SVG size */
-        height: 100px; /* Adjusted SVG size */
+        width: 100px;
+        height: 100px;
         margin-bottom: 20px;
     }
+
     .card:hover {
-        transform: translateY(-5px); /* Subtle levitation effect on hover */
-        box-shadow: 0 12px 24px rgba(0,0,0,0.2); /* Increased shadow on hover */
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.2);
     }
+
     .card-title {
-        font-size: 18px; /* Appropriately sized font for readability */
+        font-size: 18px;
         font-weight: bold;
-        color: #555; /* Slightly darker text color for contrast */
+        color: #555;
         text-align: center;
+    }
+
+    /* Media query para dispositivos móveis */
+    @media screen and (max-width: 600px) {
+        .card-container {
+            padding: 10px;
+        }
+
+        .card {
+            width: calc(50% - 20px); /* 50% para mostrar 2 cartões por linha */
+            max-width: none;
+        }
     }
 </style>
 </head>
