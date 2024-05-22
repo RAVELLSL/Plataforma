@@ -14,6 +14,7 @@
         background: #f0f0f0;
         font-family: 'Arial', sans-serif;
         padding: 20px; /* Ajuste do padding para 20px */
+        box-sizing: border-box; /* Garantir que padding seja incluído na largura total */
     }
 
     .card-container {
@@ -21,6 +22,7 @@
         justify-content: center;
         flex-wrap: wrap;
         padding: 20px;
+        box-sizing: border-box; /* Garantir que padding seja incluído na largura total */
     }
 
     .card {
@@ -40,6 +42,7 @@
         color: #333;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         margin: 20px; /* Espaço entre os cartões */
+        box-sizing: border-box; /* Garantir que padding seja incluído na largura total */
     }
 
     .card svg {
@@ -73,7 +76,7 @@
         }
 
         .card {
-            width: calc(100% - 40px); /* 100% para mostrar 1 cartão por linha */
+            width: calc(100% - 20px); /* 100% para mostrar 1 cartão por linha */
             max-width: none;
         }
     }
