@@ -1,246 +1,257 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RS Tech</title>
-<meta name="description" content="Página com cartões de ferramentas e links úteis.">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<style>
-    /* Estilos globais */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RS Tech</title>
+  <meta name="description" content="Página com cartões de ferramentas e links úteis.">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- Google Fonts (opcional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset e Estilos Globais */
     * {
-        box-sizing: border-box;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-
     body {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start; /* Alinha os itens ao topo */
-        min-height: 100vh;
-        margin: 0;
-        background: #f0f0f0;
-        font-family: 'Arial', sans-serif;
-        padding-top: 20px; /* Ajuste do padding para 20px no topo */
+      font-family: 'Roboto', Arial, sans-serif;
+      background: #f0f0f0;
+      color: #333;
+      line-height: 1.6;
     }
-
+    /* Container geral para centralizar o conteúdo */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    /* Cabeçalho */
+    header {
+      width: 100%;
+      background: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 20px 0;
+      margin-bottom: 20px;
+    }
+    header .container {
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1rem;
+      color: #666;
+    }
+    /* Main */
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-bottom: 40px;
+    }
+    /* Card Container */
     .card-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px 0;
     }
-
+    /* Cartão (Card) */
     .card {
-        width: calc(33.33% - 40px); /* 33.33% para mostrar 3 cartões por linha */
-        max-width: 300px; /* Tamanho máximo para evitar que fique muito grande */
-        background: #ffffff;
-        border: 1px solid #d0d0d0;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        color: #333;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        margin: 20px; /* Espaço entre os cartões */
-        overflow: hidden; /* Para garantir que a imagem não ultrapasse os limites do card */
-        position: relative; /* Para posicionar a imagem de fundo corretamente */
-        padding: 20px;
-        cursor: pointer;
+      width: calc(33.33% - 40px); /* 3 cartões por linha */
+      max-width: 300px;
+      background: #ffffff;
+      border: 1px solid #d0d0d0;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin: 20px;
+      padding: 20px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-
     .card img {
-        width: 100%;
-        height: auto;
-        max-width: 150px; /* Aumenta a largura máxima da imagem */
-        border-radius: 10px; /* Bordas arredondadas para combinar com o estilo do cartão */
-        margin-bottom: 20px;
-        transition: transform 0.3s ease; /* Adiciona uma transição suave ao efeito de fusão */
-        object-fit: cover; /* Mantém a proporção da imagem */
+      width: 100%;
+      height: auto;
+      max-width: 150px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+      object-fit: cover;
     }
-
     .card:hover img {
-        transform: scale(1.1); /* Aumenta a imagem ao passar o mouse */
+      transform: scale(1.1);
     }
-
     .card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 1) 100%);
-        z-index: -1; /* Posiciona atrás do conteúdo do card */
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 1) 100%);
+      z-index: -1;
     }
-
     .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
     }
-
     .card-title {
-        font-size: 18px;
-        font-weight: bold;
-        color: #555;
-        text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #555;
+      text-align: center;
     }
-
-    /* Estado de foco para acessibilidade */
+    /* Foco para acessibilidade */
     .card:focus {
-        outline: 2px solid #007BFF;
-        outline-offset: 2px;
+      outline: 2px solid #007BFF;
+      outline-offset: 2px;
     }
-
-    /* Media queries para diferentes dispositivos */
+    /* Media Queries */
     @media screen and (max-width: 900px) {
-        .card {
-            width: calc(50% - 40px); /* 50% para mostrar 2 cartões por linha */
-        }
+      .card {
+        width: calc(50% - 40px); /* 2 cartões por linha */
+      }
     }
-
     @media screen and (max-width: 600px) {
-        .card-container {
-            padding: 10px;
-        }
-
-        .card {
-            width: calc(100% - 20px); /* 100% para mostrar 1 cartão por linha */
-            max-width: none;
-        }
+      .card-container {
+        padding: 10px 0;
+      }
+      .card {
+        width: calc(100% - 20px); /* 1 cartão por linha */
+        max-width: none;
+      }
     }
-</style>
+  </style>
 </head>
 <body>
-<main>
-<div class="card-container">
-    <!-- Dados de Acesso -->
-    <a href="https://ravellsl.github.io/Ferramentas-Dados-de-Acesso/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Dados de Acesso">
-        <img src="https://img.freepik.com/vetores-premium/conceito-de-ilustracao-vetorial-de-seguranca-cibernetica-com-personagens-seguranca-de-dados-protegido-controle-de-acesso-protecao-de-dados-de-privacidade-estilo-plano-moderno-para-imagens-de-herois-de-infograficos-de-banner-da-web-de-pagina-de-destino_269730-2100.jpg?w=360" alt="Dados de Acesso" loading="lazy">
-        <div class="card-title">Dados de Acesso</div>
-    </a>
-
-    <!-- Agentes de IA -->
-    <a href="https://ravellsl.github.io/agentes-de-IA/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Agentes de IA">
-        <img src="https://static.wixstatic.com/media/e1fca1_355d1e8b4f754214a7ae4d980450a26a~mv2.png/v1/fill/w_1000,h_1000,al_c,q_90,usm_0.66_1.00_0.01/e1fca1_355d1e8b4f754214a7ae4d980450a26a~mv2.png" alt="Agentes de IA" loading="lazy">
-        <div class="card-title">Agentes de IA</div>
-    </a>
-
-    <!-- Registro de Atividades -->
-    <a href="https://ravellsl.github.io/Ferramentas-Registro-de-Atividades/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Registro de Atividades">
-        <img src="https://img.freepik.com/vetores-premium/abra-o-livro-de-fantasia-com-contos-de-fadas-literatura-infantil-magica-com-contos-de-fadas-marcador-e-estrelas-ilustracao-em-vetor-plana-colorida-isolada-no-fundo-branco_198278-11584.jpg?size=626&ext=jpg" alt="Registro de Atividades" loading="lazy">
-        <div class="card-title">Registro de Atividades</div>
-    </a>
-
-    <!-- Agenda -->
-    <a href="https://calendar.google.com/calendar/u/0/r" target="_blank" rel="noopener noreferrer" class="card" aria-label="Agenda">
-        <img src="https://st.depositphotos.com/1000422/1788/v/450/depositphotos_17889961-stock-illustration-calendar-icon.jpg" alt="Agenda" loading="lazy">
-        <div class="card-title">Agenda</div>
-    </a>
-
-    <!-- ChatGPT -->
-    <a href="https://chatgpt.com/?oai-dm=1" target="_blank" rel="noopener noreferrer" class="card" aria-label="IA">
-        <img src="https://static.vecteezy.com/ti/vetor-gratis/p3/13570274-ilustracaoial-de-icone-de-teclado-de-computador-gratis-vetor.jpg" alt="ChatGPT" loading="lazy">
-        <div class="card-title">ChatGPT</div>
-    </a>
-
-    <!-- Teste de Velocidade -->
-    <a href="https://fast.com/pt/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Teste de Velocidade">
-        <img src="https://i.pinimg.com/736x/0f/89/0d/0f890d369ad232f5f64e7089de50db30.jpg" alt="Teste de Velocidade" loading="lazy">
-        <div class="card-title">Teste de Velocidade</div>
-    </a>
-
-    <!-- Imagem -->
-    <a href="https://ravellsl.github.io/Ferramentas-Imagem/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Imagem">
-        <img src="https://img.freepik.com/vetores-premium/camera-fotografica-retro-ilustracao-de-desenho-de-mao_97378-427.jpg" alt="Imagem" loading="lazy">
-        <div class="card-title">Imagem</div>
-    </a>
-
-    <!-- Site -->
-    <a href="https://ravellsl.github.io/Ferramentas-Site/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Site">
-        <img src="https://img.freepik.com/vetores-premium/mulher-sentada-ao-telefone-com-icone-de-wifi-na-ilustracao-plana-do-conceito-de-tendencia-da-tela_720185-1063.jpg" alt="Site" loading="lazy">
-        <div class="card-title">Site</div>
-    </a>
-
-    <!-- Lousa Digital -->
-    <a href="https://ravellsl.github.io/ferramentas-quadro/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Lousa Digital">
-        <img src="https://i.pinimg.com/originals/b8/94/99/b89499204b35a5dd4474f087bc8a7214.jpg" alt="Lousa Digital" loading="lazy">
-        <div class="card-title">Lousa Digital</div>
-    </a>
-
-    <!-- Player de Áudio -->
-    <a href="https://ravellsl.github.io/Ferramentas-Player-Audio/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Player de Áudio">
-        <img src="https://st2.depositphotos.com/4187363/46902/v/1600/depositphotos_469026640-stock-illustration-hand-drawn-black-white-retro.jpg" alt="Player de Áudio" loading="lazy">
-        <div class="card-title">Player de Áudio</div>
-    </a>
-
-    <!-- Vídeo -->
-    <a href="https://ravellsl.github.io/Ferramentas-Videos/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Vídeo">
-        <img src="https://img.freepik.com/vetores-premium/icone-de-camera-de-video-em-estilo-comico-pictograma-de-ilustracao-de-desenho-vetorial-de-reproducao-de-filme-efeito-de-respingo-de-conceito-de-negocio-de-streaming-de-video_157943-7086.jpg" alt="Vídeo" loading="lazy">
-        <div class="card-title">Vídeo</div>
-    </a> 
-
-     <!-- Conversor de Arquivos -->
-     <a href="https://convertio.co/pt/archive-converter/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Conversor de Arquivos">
-        <img src="https://www.adobe.com/dc-shared/assets/images/frictionless/og-images/media_136df1f1b14d4ae7c5ca3e0bb2df8e023d68d6a5e.jpeg" alt="Conversor de Arquivos" loading="lazy">
-        <div class="card-title">Conversor de Arquivos</div>
-    </a> 
-
-     <!-- Edição de Áudio -->
-     <a href="https://audioalter.com/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Edição de Áudio">
-        <img src="https://us.123rf.com/450wm/ascom73/ascom732211/ascom73221100009/194070956-art-sound-radio-wave-icon-vector-wifi-sound-signal-connection-for-graphic-design-logo-website-social.jpg?ver=6" alt="Edição de Áudio" loading="lazy">
-        <div class="card-title">Edição de Áudio</div>
-    </a> 
-
-    <!-- Google Meet -->
-    <a href="https://meet.google.com/?hs=197&authuser=0" target="_blank" rel="noopener noreferrer" class="card" aria-label="Meet">
-        <img src="https://img.freepik.com/premium-vector/man-is-working-desktop-with-laptop-headphones-with-microphone-online-customer-support-call-center-vector-illustration-cartoon-style_562639-982.jpg" alt="Meet" loading="lazy">
-        <div class="card-title">Meet</div>
-    </a>        
-    
-     <!-- Office -->
-     <a href="https://www.microsoft365.com/?auth=1" target="_blank" rel="noopener noreferrer" class="card" aria-label="Office">
-        <img src="https://s2-techtudo.glbimg.com/gV5fQm9-SgpQuZeq7mx2xc28_Uw=/0x0:695x450/984x0/smart/filters:strip_icc()/s.glbimg.com/po/tt2/f/original/2015/12/30/aprenda-a-remover-seus-dados-pessoais-dos-programas-do-office.jpg" alt="Office" loading="lazy">
-        <div class="card-title">Office</div>
-    </a> 
-
-     <!-- Tradutor -->
-     <a href="https://translate.google.com.br/?hl=pt-BR&tab=TT&sl=pt&tl=en&op=translate" target="_blank" rel="noopener noreferrer" class="card" aria-label="Tradutor">
-        <img src="https://img.freepik.com/vetores-premium/logotipo-do-google-tradutor_689336-962.jpg" alt="Tradutor" loading="lazy">
-        <div class="card-title">Tradutor</div>
-    </a> 
-
-    <!-- Criar QR Code -->
-    <a href="https://criar.io/br/ferramentas/gerador-de-qrcode" target="_blank" rel="noopener noreferrer" class="card" aria-label="Criar QR Code">
-        <img src="https://media.licdn.com/dms/image/D4D12AQHcf3U2mDSA3A/article-cover_image-shrink_600_2000/0/1707107674734?e=2147483647&v=beta&t=p0EkUOu9ipM6GcVBf9BuwSwiEMv_AG8mxH2uiWX1m0Y" alt="Criar QR Code" loading="lazy">
-        <div class="card-title">Criar QR Code</div>
-    </a> 
-    
-    <!-- Criar Senha -->
-    <a href="https://www.lastpass.com/pt/features/password-generator" target="_blank" rel="noopener noreferrer" class="card" aria-label="Criar Senha">
-        <img src="https://img.freepik.com/vetores-premium/icone-de-protecao-de-senha-icone-de-vetor-de-senha_654297-111.jpg?size=626&ext=jpg" alt="Criar Senha" loading="lazy">
-        <div class="card-title">Criar Senha</div>
-    </a> 
-
-    <!-- Clipchamp -->
-    <a href="https://app.clipchamp.com/editor/a808b7af-2ece-4306-8c12-a0cab49aae52" target="_blank" rel="noopener noreferrer" class="card" aria-label="Clipchamp">
-        <img src="https://sm.pcmag.com/t/pcmag_me/review/m/microsoft-/microsoft-clipchamp_ux8v.1920.jpg" alt="Clipchamp" loading="lazy">
-        <div class="card-title">Clipchamp</div>
-    </a> 
-
-    <!-- Compressor de Vídeo -->
-    <a href="https://www.videosmaller.com/pt/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Compressor de Vídeo">
-        <img src="data:image/png;base64,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" alt="Compressor de Vídeo" loading="lazy">
-        <div class="card-title">Compressor de Vídeo</div>
-    </a> 
-
-    <!-- Encurtador de URL -->
-    <a href="https://www.encurtador.com.br/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Encurtador de URL">
-        <img src="https://link.ufms.br/img/logo.png" alt="Encurtador de URL" loading="lazy">
-        <div class="card-title">Encurtador de URL</div>
-    </a> 
-
-</div>
-</main>
+  <header>
+    <div class="container">
+      <h1>RS Tech</h1>
+      <p>Ferramentas e links úteis</p>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="card-container">
+        <!-- Dados de Acesso -->
+        <a href="https://ravellsl.github.io/Ferramentas-Dados-de-Acesso/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Dados de Acesso">
+          <img src="https://img.freepik.com/vetores-premium/conceito-de-ilustracao-vetorial-de-seguranca-cibernetica-com-personagens-seguranca-de-dados-protegido-controle-de-acesso-protecao-de-dados-de-privacidade-estilo-plano-moderno-para-imagens-de-herois-de-infograficos-de-banner-da-web-de-pagina-de-destino_269730-2100.jpg?w=360" alt="Dados de Acesso" loading="lazy">
+          <div class="card-title">Dados de Acesso</div>
+        </a>
+        <!-- Agentes de IA -->
+        <a href="https://ravellsl.github.io/agentes-de-IA/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Agentes de IA">
+          <img src="https://static.wixstatic.com/media/e1fca1_355d1e8b4f754214a7ae4d980450a26a~mv2.png/v1/fill/w_1000,h_1000,al_c,q_90,usm_0.66_1.00_0.01/e1fca1_355d1e8b4f754214a7ae4d980450a26a~mv2.png" alt="Agentes de IA" loading="lazy">
+          <div class="card-title">Agentes de IA</div>
+        </a>
+        <!-- Registro de Atividades -->
+        <a href="https://ravellsl.github.io/Ferramentas-Registro-de-Atividades/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Registro de Atividades">
+          <img src="https://img.freepik.com/vetores-premium/abra-o-livro-de-fantasia-com-contos-de-fadas-literatura-infantil-magica-com-contos-de-fadas-marcador-e-estrelas-ilustracao-em-vetor-plana-colorida-isolada-no-fundo-branco_198278-11584.jpg?size=626&ext=jpg" alt="Registro de Atividades" loading="lazy">
+          <div class="card-title">Registro de Atividades</div>
+        </a>
+        <!-- Agenda -->
+        <a href="https://calendar.google.com/calendar/u/0/r" target="_blank" rel="noopener noreferrer" class="card" aria-label="Agenda">
+          <img src="https://st.depositphotos.com/1000422/1788/v/450/depositphotos_17889961-stock-illustration-calendar-icon.jpg" alt="Agenda" loading="lazy">
+          <div class="card-title">Agenda</div>
+        </a>
+        <!-- ChatGPT -->
+        <a href="https://chatgpt.com/?oai-dm=1" target="_blank" rel="noopener noreferrer" class="card" aria-label="IA">
+          <img src="https://static.vecteezy.com/ti/vetor-gratis/p3/13570274-ilustracaoial-de-icone-de-teclado-de-computador-gratis-vetor.jpg" alt="ChatGPT" loading="lazy">
+          <div class="card-title">ChatGPT</div>
+        </a>
+        <!-- Teste de Velocidade -->
+        <a href="https://fast.com/pt/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Teste de Velocidade">
+          <img src="https://i.pinimg.com/736x/0f/89/0d/0f890d369ad232f5f64e7089de50db30.jpg" alt="Teste de Velocidade" loading="lazy">
+          <div class="card-title">Teste de Velocidade</div>
+        </a>
+        <!-- Imagem -->
+        <a href="https://ravellsl.github.io/Ferramentas-Imagem/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Imagem">
+          <img src="https://img.freepik.com/vetores-premium/camera-fotografica-retro-ilustracao-de-desenho-de-mao_97378-427.jpg" alt="Imagem" loading="lazy">
+          <div class="card-title">Imagem</div>
+        </a>
+        <!-- Site -->
+        <a href="https://ravellsl.github.io/Ferramentas-Site/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Site">
+          <img src="https://img.freepik.com/vetores-premium/mulher-sentada-ao-telefone-com-icone-de-wifi-na-ilustracao-plana-do-conceito-de-tendencia-da-tela_720185-1063.jpg" alt="Site" loading="lazy">
+          <div class="card-title">Site</div>
+        </a>
+        <!-- Lousa Digital -->
+        <a href="https://ravellsl.github.io/ferramentas-quadro/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Lousa Digital">
+          <img src="https://i.pinimg.com/originals/b8/94/99/b89499204b35a5dd4474f087bc8a7214.jpg" alt="Lousa Digital" loading="lazy">
+          <div class="card-title">Lousa Digital</div>
+        </a>
+        <!-- Player de Áudio -->
+        <a href="https://ravellsl.github.io/Ferramentas-Player-Audio/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Player de Áudio">
+          <img src="https://st2.depositphotos.com/4187363/46902/v/1600/depositphotos_469026640-stock-illustration-hand-drawn-black-white-retro.jpg" alt="Player de Áudio" loading="lazy">
+          <div class="card-title">Player de Áudio</div>
+        </a>
+        <!-- Vídeo -->
+        <a href="https://ravellsl.github.io/Ferramentas-Videos/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Vídeo">
+          <img src="https://img.freepik.com/vetores-premium/icone-de-camera-de-video-em-estilo-comico-pictograma-de-ilustracao-de-desenho-vetorial-de-reproducao-de-filme-efeito-de-respingo-de-conceito-de-negocio-de-streaming-de-video_157943-7086.jpg" alt="Vídeo" loading="lazy">
+          <div class="card-title">Vídeo</div>
+        </a>
+        <!-- Conversor de Arquivos -->
+        <a href="https://convertio.co/pt/archive-converter/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Conversor de Arquivos">
+          <img src="https://www.adobe.com/dc-shared/assets/images/frictionless/og-images/media_136df1f1b14d4ae7c5ca3e0bb2df8e023d68d6a5e.jpeg" alt="Conversor de Arquivos" loading="lazy">
+          <div class="card-title">Conversor de Arquivos</div>
+        </a>
+        <!-- Edição de Áudio -->
+        <a href="https://audioalter.com/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Edição de Áudio">
+          <img src="https://us.123rf.com/450wm/ascom73/ascom732211/ascom73221100009/194070956-art-sound-radio-wave-icon-vector-wifi-sound-signal-connection-for-graphic-design-logo-website-social.jpg?ver=6" alt="Edição de Áudio" loading="lazy">
+          <div class="card-title">Edição de Áudio</div>
+        </a>
+        <!-- Google Meet -->
+        <a href="https://meet.google.com/?hs=197&authuser=0" target="_blank" rel="noopener noreferrer" class="card" aria-label="Meet">
+          <img src="https://img.freepik.com/premium-vector/man-is-working-desktop-with-laptop-headphones-with-microphone-online-customer-support-call-center-vector-illustration-cartoon-style_562639-982.jpg" alt="Meet" loading="lazy">
+          <div class="card-title">Meet</div>
+        </a>
+        <!-- Office -->
+        <a href="https://www.microsoft365.com/?auth=1" target="_blank" rel="noopener noreferrer" class="card" aria-label="Office">
+          <img src="https://s2-techtudo.glbimg.com/gV5fQm9-SgpQuZeq7mx2xc28_Uw=/0x0:695x450/984x0/smart/filters:strip_icc()/s.glbimg.com/po/tt2/f/original/2015/12/30/aprenda-a-remover-seus-dados-pessoais-dos-programas-do-office.jpg" alt="Office" loading="lazy">
+          <div class="card-title">Office</div>
+        </a>
+        <!-- Tradutor -->
+        <a href="https://translate.google.com.br/?hl=pt-BR&tab=TT&sl=pt&tl=en&op=translate" target="_blank" rel="noopener noreferrer" class="card" aria-label="Tradutor">
+          <img src="https://img.freepik.com/vetores-premium/logotipo-do-google-tradutor_689336-962.jpg" alt="Tradutor" loading="lazy">
+          <div class="card-title">Tradutor</div>
+        </a>
+        <!-- Criar QR Code -->
+        <a href="https://criar.io/br/ferramentas/gerador-de-qrcode" target="_blank" rel="noopener noreferrer" class="card" aria-label="Criar QR Code">
+          <img src="https://media.licdn.com/dms/image/D4D12AQHcf3U2mDSA3A/article-cover_image-shrink_600_2000/0/1707107674734?e=2147483647&v=beta&t=p0EkUOu9ipM6GcVBf9BuwSwiEMv_AG8mxH2uiWX1m0Y" alt="Criar QR Code" loading="lazy">
+          <div class="card-title">Criar QR Code</div>
+        </a>
+        <!-- Criar Senha -->
+        <a href="https://www.lastpass.com/pt/features/password-generator" target="_blank" rel="noopener noreferrer" class="card" aria-label="Criar Senha">
+          <img src="https://img.freepik.com/vetores-premium/icone-de-protecao-de-senha-icone-de-vetor-de-senha_654297-111.jpg?size=626&ext=jpg" alt="Criar Senha" loading="lazy">
+          <div class="card-title">Criar Senha</div>
+        </a>
+        <!-- Clipchamp -->
+        <a href="https://app.clipchamp.com/editor/a808b7af-2ece-4306-8c12-a0cab49aae52" target="_blank" rel="noopener noreferrer" class="card" aria-label="Clipchamp">
+          <img src="https://sm.pcmag.com/t/pcmag_me/review/m/microsoft-/microsoft-clipchamp_ux8v.1920.jpg" alt="Clipchamp" loading="lazy">
+          <div class="card-title">Clipchamp</div>
+        </a>
+        <!-- Compressor de Vídeo -->
+        <a href="https://www.videosmaller.com/pt/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Compressor de Vídeo">
+          <img src="data:image/png;base64,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" alt="Compressor de Vídeo" loading="lazy">
+          <div class="card-title">Compressor de Vídeo</div>
+        </a>
+        <!-- Encurtador de URL -->
+        <a href="https://www.encurtador.com.br/" target="_blank" rel="noopener noreferrer" class="card" aria-label="Encurtador de URL">
+          <img src="https://link.ufms.br/img/logo.png" alt="Encurtador de URL" loading="lazy">
+          <div class="card-title">Encurtador de URL</div>
+        </a>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
